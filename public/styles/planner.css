@@ -1,0 +1,99 @@
+.constructor__form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3em;
+    justify-content: center;
+}
+
+.constructor__input__idea-label {
+    letter-spacing: normal;
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 450;
+    text-transform: uppercase;
+    line-height: 0.3;
+    text-align: left;
+    margin-bottom: 0.5em;
+}
+
+#constructor__input__idea {
+    height: 3em;
+    width: 43%;
+    border-radius: 10px;
+    border: #242424 solid 1px;
+}
+
+.submit__button, .clear__button, .delete__button {
+    margin-top: 1em;
+    position: page;
+    margin-left: 0;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 0.8em;
+    padding-left: 20px;
+    padding-right: 20px;
+    background: #A60540;
+    letter-spacing: normal;
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 450;
+    text-transform: uppercase;
+    border-radius: 10px;
+    border: #000000 solid 1px;
+    cursor: pointer;
+}
+
+.submit__button {
+    background: #4a4094;
+    color: rgb(255, 255, 255);
+}
+
+.delete__button {
+    font-size: 0.7em;
+    width:100%;
+}
+
+.constructor__todo {
+    justify-self: center;
+    align-self: center;
+    border-radius: 10px;
+    margin-top: 3em;
+    width: 40%;
+    padding: 1%;
+}
+
+.todo-list__item {
+    font-size: 1em;
+    background: rgb(44, 43, 43);
+    padding: 1%;
+    border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 450;
+    color: white;
+    margin-top: 0.5em;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+}
+
+@media screen and (max-width: 1000px) {
+    .submit__button, .clear__button {
+        font-size: 0.6em;
+    }
+
+    .delete__button {
+        font-size: 0.5em;
+    }
+
+    .constructor__todo {
+        font-size: 0.8em;
+    }
+
+    .gif {
+        display: none;
+    }
+}

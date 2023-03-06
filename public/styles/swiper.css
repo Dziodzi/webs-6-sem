@@ -1,0 +1,59 @@
+/*Стиль контейнера*/
+.swiper-container {
+    width: 50%;
+    margin: 0 auto;
+}
+
+/*Стиль слайдов*/
+.swiper-slide {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    padding: 0;
+    border-radius: 10px;
+    width: 50%;
+    height: 50%;
+}
+
+/*Стиль картинки на слайде*/
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+/*Расположение пагинации*/
+.swiper-pagination {
+    bottom: 0;
+}
+
+/*Стиль точек пагинации*/
+.swiper-pagination-bullet {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+    background-color: #ffffff;
+    border: 0.3em black solid;
+}
+
+/*Стиль текста на слайде*/
+.swiper-slide h3 {
+    color: black;
+    text-align: center;
+    font-weight: 700;
+}
+
+/*Стиль кнопки "следующий слайд"*/
+.swiper-button-next {
+    left: auto;
+    color: #ffffff;
+    right: -100px;
+}
+
+/*Стиль кнопки "предыдущий слайд"*/
+.swiper-button-prev {
+    color: #ffffff;
+    right: auto;
+    left: -100px;
+}

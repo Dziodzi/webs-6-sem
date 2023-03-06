@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="money, big money, not a SCAM">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Подключение библиотеки -->
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+    <link href="styles/styles.css" rel="stylesheet">
+    <link href="styles/navigation.css" rel="stylesheet">
+    <link href="styles/table.css" rel="stylesheet">
+    <link href="styles/reviews.css" rel="stylesheet">
+    <link href="styles/swiper.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+    <script src="js/showLoadingTime.js"></script>
+    <script src="js/showReviews.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/swiper.js"></script>
+    <title>СК - отзывы</title>
+</head>
+
+<body>
+<header>
+    <nav class="top-menu">
+        <img class="logo" src="assets/logo1.png">
+        <ul class="menu-main">
+            <li><a class="navbar-button" href="index.html">Главная</a></li>
+            <li><a class="navbar-button" href="team.html">Наша команда</a></li>
+            <li><a class="navbar-button" href="programs.html">Программы обучения</a></li>
+            <li><a class="navbar-button" href="planner.html">Планер</a></li>
+            <li><a class="navbar-button active" href="reviews.html">Отзывы</a></li>
+            <script src="js/navLocation.js"></script>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <article>
+        <section class="reviews-section">
+            <h2>Отзывы наших клиентов</h2>
+            <p>Эти люди уже заработали благодаря нам крупный капитал. <br> Не верите? Их довольные лица скажут всё за себя!</p>
+            <!--Дефолтный синтаксис для создания слайдера (включая нейминг классов)-->
+            <div class="swiper-container mySwiper">
+                <div class="swiper-wrapper">
+                    <!--Сами слайды-->
+                    <div class="swiper-slide"><h3>Уоррен Баффет</h3><img src="assets/1.jpg"></div>
+                    <div class="swiper-slide"><h3>Джефф Безос</h3><img src="assets/2.jpg"></div>
+                    <div class="swiper-slide"><h3>Павел Дуров</h3><img src="assets/3.jpg"></div>
+                    <div class="swiper-slide"><h3>Канье Уэст</h3><img src="assets/4.jpg"></div>
+                    <div class="swiper-slide"><h3>Марк Цукерберг</h3><img src="assets/5.jpg"></div>
+                </div>
+                <!--Кнопки и пагинация-->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <!--Подключение скрипта-->
+            <script src="js/swiper.js"></script>
+        </section>
+        <h2>Остались сомнения?</h2>
+        <p>Мы спешим их развеять! <br>Просто взгляните, что думают о нас наши ученики,
+            изучающие латынь:</p>
+        <button id="getReviewsButton" class="load__button" type="button">Загрузить отзывы</button>
+        <div id="preloader"></div>
+        <div id="reviews" class="reviews"></div>
+        <template id="reviewItem">
+            <div class="reviewItem">
+                <p><b>Имя: </b>
+                    <span>${newPost["name"]}</span>
+                </p>
+                <p><b>Email: </b>
+                    <span>${newPost["email"]}</span>
+                </p>
+                <p><b>Комментарий: </b>
+                    <span>${newPost["body"]}</span>
+                </p>
+            </div>
+        </template>
+    </article>
+</main>
+<footer>
+    <pre>
+    _    _____   _     _  _  ______     ___
+   / \  |___ /  / \  _| || ||__  / |   / _ \
+  / _ \   |_ \ / _ \|_  ..  _|/ /| |  | | | |
+ / ___ \ ___) / ___ \_      _/ /_| |__| |_| |
+/_/   \_\____/_/   \_\|_||_|/____|_____\___/
+            </pre>
+    <p class="loading-time" id="loading-time">Время загрузки страницы составило </p>
+    <h3>©Azazin. All rights reserved.</h3>
+</footer>
+</body>
+</html>
