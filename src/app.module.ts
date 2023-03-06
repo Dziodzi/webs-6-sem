@@ -1,78 +1,45 @@
-import { CallHandler, ExecutionContext, Injectable, Module, NestInterceptor, Req } from "@nestjs/common";
-// import { TemplateEngineModule } from 'template-engine-module';
-import { Controller, Get, Render } from '@nestjs/common';
-import { Observable, tap } from "rxjs";
-/* @Module({
-  imports: [
-    TemplateEngineModule.forRoot({
-      engine: 'pug',
-      views: [__dirname + '/views'],
-    }),
+import {
+  Injectable,
+  NestInterceptor,
+  ExecutionContext,
+  CallHandler,
+  Controller,
+  Get,
+  Render,
+  Req,
+  Module,
+} from '@nestjs/common';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { APP_INTERCEPTOR } from '@nestjs/core';
+import { AppService } from './app.service';
+import { AppController } from './app.controller';
+
+@Injectable()
+export class ServerResponse implements NestInterceptor {
+  intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
+    const now = Date.now();
+    return next.handle().pipe(
+      // Действия, выполняемые после вызова обработчика
+      tap(() => console.log(`After... ${Date.now() - now}ms`)),
+    );
+  }
+}
+@Module({
+  imports: [],
+  controllers: [AppController],
+  providers: [
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: ServerResponse,
+    },
+    {
+      provide: AppService,
+      useClass: AppService,
+    },
   ],
 })
-*/
-@Controller()
-export class IndexController {
-  @Get('/index')
-  @Render('index')
-  getIndexPage(@Req() req) {
-    if (req.user) {
-      // Авторизованный пользователь
-      return { user: req.user };
-    } else {
-      // Неавторизованный пользователь
-      return { user: null };
-    }
-  };
-  getAboutPage() {
-    return {
-      pageTitle: 'Главная',
-    };
-  }
-}
-
-@Controller()
-export class TeamController {
-  @Get('/team')
-  @Render('team')
-  getAboutPage() {
-    return {
-      pageTitle: 'Наша команда',
-    };
-  }
-}
-@Controller()
-export class ProgramsController {
-  @Get('/programs')
-  @Render('programs')
-  getAboutPage() {
-    return {
-      pageTitle: 'Наша команда',
-    };
-  }
-}
-
-@Controller()
-export class PlannerController {
-  @Get('/planner')
-  @Render('planner')
-  getAboutPage() {
-    return {
-      pageTitle: 'Планер',
-    };
-  }
-}
-
-@Controller()
-export class ReviewsController {
-  @Get('/reviews')
-  @Render('reviews')
-  getAboutPage() {
-    return {
-      pageTitle: 'Отзывы',
-    };
-  }
-}
+export class AppModule {}
 
 @Injectable()
 export class LoggingInterceptor implements NestInterceptor {
@@ -87,4 +54,3 @@ export class LoggingInterceptor implements NestInterceptor {
     );
   }
 }
-export class AppModule {}
