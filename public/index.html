@@ -114,6 +114,11 @@
 </main>
 
 <footer>
+    {{#if user}}
+    <p>Добро пожаловать, {{user}}!</p>
+    {{else}}
+    <p>Пожалуйста, <a href="/login">войдите</a>, чтобы продолжить.</p>
+    {{/if}}
     <pre>
     _    _____   _     _  _  ______     ___
    / \  |___ /  / \  _| || ||__  / |   / _ \
@@ -122,6 +127,18 @@
 /_/   \_\____/_/   \_\|_||_|/____|_____\___/
             </pre>
     <p class="loading-time" id="loading-time">Время загрузки страницы составило </p>
+    <script>
+        const responseTime = document.getElementById('response-time');
+        const xResponseTime = parseInt(
+          document.querySelector('meta[name="x-response-time"]').content
+        );
+        const domContentLoadedEventEnd =
+          window.performance.timing.domContentLoadedEventEnd -
+          window.performance.timing.navigationStart;
+        const totalTime = xResponseTime + domContentLoadedEventEnd;
+        responseTime.innerText = totalTime;
+    </script>
+    <p>Page generated in <span id="response-time"></span>ms</p>
     <h3>©Azazin. All rights reserved.</h3>
 </footer>
 </body>
