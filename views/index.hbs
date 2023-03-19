@@ -16,7 +16,16 @@
 </head>
 <body>
 <header>
-    {{> navigation }}
+  <nav class="top-menu">
+    <img class="logo" src="assets/logo1.png">
+    <ul class="menu-main">
+      <li><a class="navbar-button active" href="/">Главная</a></li>
+      <li><a class="navbar-button" href="team">Наша команда</a></li>
+      <li><a class="navbar-button" href="programs">Программы обучения</a></li>
+      <li><a class="navbar-button" href="planner">Планер</a></li>
+      <li><a class="navbar-button" href="reviews">Отзывы</a></li>
+    </ul>
+  </nav>
 </header>
 
 <main>
@@ -105,6 +114,14 @@
 </main>
 
 <footer>
+  {{#if user}}
+    <p>Добро пожаловать, {{user}}!</p>
+    <form action="/logoutIndex" method="get">
+      <button type="submit">Выйти</button>
+    </form>
+  {{else}}
+    <p>Пожалуйста, <a href="/login">войдите</a>, чтобы продолжить.</p>
+  {{/if}}
   {{> footer}}
 </footer>
 </body>

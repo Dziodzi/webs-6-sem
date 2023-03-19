@@ -17,16 +17,16 @@
 
 <body>
 <header>
-    <nav class="top-menu">
-        <img class="logo" src="../assets/logo1.png">
-        <ul class="menu-main">
-            <li><a class="navbar-button" href="index.hbs">Главная</a></li>
-            <li><a class="navbar-button" href="team.hbs">Наша команда</a></li>
-            <li><a class="navbar-button active" href="programs.html">Программы обучения</a></li>
-            <li><a class="navbar-button" href="planner.hbs">Планер</a></li>
-            <li><a class="navbar-button" href="reviews.hbs">Отзывы</a></li>
-        </ul>
-    </nav>
+  <nav class="top-menu">
+    <img class="logo" src="assets/logo1.png">
+    <ul class="menu-main">
+      <li><a class="navbar-button" href="/">Главная</a></li>
+      <li><a class="navbar-button" href="team">Наша команда</a></li>
+      <li><a class="navbar-button active" href="programs">Программы обучения</a></li>
+      <li><a class="navbar-button" href="planner">Планер</a></li>
+      <li><a class="navbar-button" href="reviews">Отзывы</a></li>
+    </ul>
+  </nav>
 </header>
 
 <main>
@@ -86,15 +86,15 @@
     </article>
 </main>
 <footer>
-    <pre>
-    _    _____   _     _  _  ______     ___
-   / \  |___ /  / \  _| || ||__  / |   / _ \
-  / _ \   |_ \ / _ \|_  ..  _|/ /| |  | | | |
- / ___ \ ___) / ___ \_      _/ /_| |__| |_| |
-/_/   \_\____/_/   \_\|_||_|/____|_____\___/
-            </pre>
-    <p class="loading-time" id="loading-time">Время загрузки страницы составило </p>
-    <h3>©Azazin. All rights reserved.</h3>
+  {{#if user}}
+    <p>Добро пожаловать, {{user}}!</p>
+    <form action="/logoutPrograms" method="get">
+      <button type="submit">Выйти</button>
+    </form>
+  {{else}}
+    <p>Пожалуйста, <a href="/login">войдите</a>, чтобы продолжить.</p>
+  {{/if}}
+  {{> footer}}
 </footer>
 </body>
 </html>
