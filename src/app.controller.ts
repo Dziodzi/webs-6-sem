@@ -64,7 +64,7 @@ export class AppController {
   @Get('/logoutPlanner')
   @Render('planner')
   logoutPlanner() {
-    return { user: null, elapsed: 100 };
+    return { user: null };
   }
 
   @Get('/logoutPrograms')
