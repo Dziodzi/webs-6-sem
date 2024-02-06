@@ -1,11 +1,13 @@
 import { Get, Controller, Render, Post, Body } from '@nestjs/common';
-import { ApiOperation, ApiParam, ApiResponse } from '@nestjs/swagger';
+import { ApiOperation, ApiParam, ApiResponse } from '@nestjs/swagger';r
 import { AppService } from './app.service';
+import session from 'express-session';
 
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
   private user = '';
+
   @ApiOperation({
     summary: 'Gets the statics of index page',
   })
@@ -53,6 +55,7 @@ export class AppController {
     status: 403,
     description: 'Forbidden.',
   })
+
   @Get('/programs')
   @Render('programs')
   getPrograms() {
@@ -109,6 +112,7 @@ export class AppController {
     status: 403,
     description: 'Forbidden.',
   })
+
   @Post('/login')
   @Render('index')
   login(@Body() body: { username: string }): { user: string } {
@@ -116,6 +120,7 @@ export class AppController {
     this.user = username;
     return { user: this.user };
   }
+
 
   @ApiOperation({
     summary: 'Logging out',
@@ -128,6 +133,7 @@ export class AppController {
     status: 403,
     description: 'Forbidden.',
   })
+  
   @Get('/logoutIndex')
   @Render('index')
   logoutIndex() {

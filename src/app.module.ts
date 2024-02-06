@@ -10,6 +10,15 @@ import { PackageModule } from './package/PackageModule';
 @Module({
   imports: [UserModule, CommentModule, PostModule, TaskModule, PackageModule],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: LoaderInterceptor,
+    },
+    {
+      provide: AppService,
+      useClass: AppService,
+    },
+  ],
 })
 export class AppModule {}

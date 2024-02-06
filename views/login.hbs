@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <meta name="keywords" content="money, big money, not a SCAM">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../styles/styles.css" rel="stylesheet">
+  <link href="../styles/navigation.css" rel="stylesheet">
+  <link href="../styles/table.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+  <script src="../js/showLoadingTime.js"></script>
+  <script src="../js/navLocation.js"></script>
+  <script src="../js/config.js"></script>
+  <title>СК - главная</title>
+</head>
+<body>
+<h1>Вход в систему</h1>
+<form action="/login" method="POST">
+  <label>
+    <p>Придумайте себе логин:</p>
+    <input type="text" name="username">
+  </label>
+  <br>
+  <br>
+  <button type="submit">Войти</button>
+</form>
+<footer>
+  <pre>
+    _    _____   _     _  _  ______     ___
+   / \  |___ /  / \  _| || ||__  / |   / _ \
+  / _ \   |_ \ / _ \|_  ..  _|/ /| |  | | | |
+ / ___ \ ___) / ___ \_      _/ /_| |__| |_| |
+/_/   \_\____/_/   \_\|_||_|/____|_____\___/
+            </pre>
+  <p class="loading-time" id="loading-time">Время загрузки страницы составило </p>
+  <script>
+    const responseTime = document.getElementById('response-time');
+    const xResponseTime = parseInt(
+      document.querySelector('meta[name="x-response-time"]').content
+    );
+    const domContentLoadedEventEnd =
+      window.performance.timing.domContentLoadedEventEnd -
+      window.performance.timing.navigationStart;
+    const totalTime = xResponseTime + domContentLoadedEventEnd;
+    responseTime.innerText = totalTime;
+  </script>
+  <p>Страница загружена за {{elapsed}} мс</p>
+  <h3>©Azazin. All rights reserved.</h3>
+</footer>
+</body>
+</html>

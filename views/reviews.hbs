@@ -13,33 +13,32 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 
-    <link href="styles/styles.css" rel="stylesheet">
-    <link href="styles/navigation.css" rel="stylesheet">
-    <link href="styles/table.css" rel="stylesheet">
-    <link href="styles/reviews.css" rel="stylesheet">
-    <link href="styles/swiper.css" rel="stylesheet">
+    <link href="../styles/styles.css" rel="stylesheet">
+    <link href="../styles/navigation.css" rel="stylesheet">
+    <link href="../styles/table.css" rel="stylesheet">
+    <link href="../styles/reviews.css" rel="stylesheet">
+    <link href="../styles/swiper.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
-    <script src="js/showLoadingTime.js"></script>
-    <script src="js/showReviews.js"></script>
-    <script src="js/config.js"></script>
-    <script src="js/swiper.js"></script>
+    <script src="../js/showLoadingTime.js"></script>
+    <script src="../js/showReviews.js"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/swiper.js"></script>
     <title>СК - отзывы</title>
 </head>
 
 <body>
 <header>
-    <nav class="top-menu">
-        <img class="logo" src="assets/logo1.png">
-        <ul class="menu-main">
-            <li><a class="navbar-button" href="index.html">Главная</a></li>
-            <li><a class="navbar-button" href="team.html">Наша команда</a></li>
-            <li><a class="navbar-button" href="programs.html">Программы обучения</a></li>
-            <li><a class="navbar-button" href="planner.html">Планер</a></li>
-            <li><a class="navbar-button active" href="reviews.html">Отзывы</a></li>
-            <script src="js/navLocation.js"></script>
-        </ul>
-    </nav>
+  <nav class="top-menu">
+    <img class="logo" src="assets/logo1.png">
+    <ul class="menu-main">
+      <li><a class="navbar-button" href="/">Главная</a></li>
+      <li><a class="navbar-button" href="team">Наша команда</a></li>
+      <li><a class="navbar-button" href="programs">Программы обучения</a></li>
+      <li><a class="navbar-button" href="planner">Планер</a></li>
+      <li><a class="navbar-button active" href="reviews">Отзывы</a></li>
+    </ul>
+  </nav>
 </header>
 
 <main>
@@ -51,11 +50,11 @@
             <div class="swiper-container mySwiper">
                 <div class="swiper-wrapper">
                     <!--Сами слайды-->
-                    <div class="swiper-slide"><h3>Уоррен Баффет</h3><img src="assets/1.jpg"></div>
-                    <div class="swiper-slide"><h3>Джефф Безос</h3><img src="assets/2.jpg"></div>
-                    <div class="swiper-slide"><h3>Павел Дуров</h3><img src="assets/3.jpg"></div>
-                    <div class="swiper-slide"><h3>Канье Уэст</h3><img src="assets/4.jpg"></div>
-                    <div class="swiper-slide"><h3>Марк Цукерберг</h3><img src="assets/5.jpg"></div>
+                    <div class="swiper-slide"><h3>Уоррен Баффет</h3><img src="../assets/1.jpg"></div>
+                    <div class="swiper-slide"><h3>Джефф Безос</h3><img src="../assets/2.jpg"></div>
+                    <div class="swiper-slide"><h3>Павел Дуров</h3><img src="../assets/3.jpg"></div>
+                    <div class="swiper-slide"><h3>Канье Уэст</h3><img src="../assets/4.jpg"></div>
+                    <div class="swiper-slide"><h3>Марк Цукерберг</h3><img src="../assets/5.jpg"></div>
                 </div>
                 <!--Кнопки и пагинация-->
                 <div class="swiper-button-prev"></div>
@@ -63,7 +62,7 @@
                 <div class="swiper-pagination"></div>
             </div>
             <!--Подключение скрипта-->
-            <script src="js/swiper.js"></script>
+            <script src="../js/swiper.js"></script>
         </section>
         <h2>Остались сомнения?</h2>
         <p>Мы спешим их развеять! <br>Просто взгляните, что думают о нас наши ученики,
@@ -87,15 +86,15 @@
     </article>
 </main>
 <footer>
-    <pre>
-    _    _____   _     _  _  ______     ___
-   / \  |___ /  / \  _| || ||__  / |   / _ \
-  / _ \   |_ \ / _ \|_  ..  _|/ /| |  | | | |
- / ___ \ ___) / ___ \_      _/ /_| |__| |_| |
-/_/   \_\____/_/   \_\|_||_|/____|_____\___/
-            </pre>
-    <p class="loading-time" id="loading-time">Время загрузки страницы составило </p>
-    <h3>©Azazin. All rights reserved.</h3>
+  {{#if user}}
+    <p>Добро пожаловать, {{user}}!</p>
+    <form action="/logoutReviews" method="get">
+      <button type="submit">Выйти</button>
+    </form>
+  {{else}}
+    <p>Пожалуйста, <a href="/login">войдите</a>, чтобы продолжить.</p>
+  {{/if}}
+  {{> footer}}
 </footer>
 </body>
 </html>
