@@ -1,11 +1,14 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { LoaderInterceptor } from './interceptor';
-import { APP_INTERCEPTOR } from '@nestjs/core';
+import { UserModule } from './user/UserModule';
+import { CommentModule } from './comment/CommentModule';
+import { PostModule } from './post/PostModule';
+import { TaskModule } from './task/TaskModule';
+import { PackageModule } from './package/PackageModule';
 
 @Module({
-  imports: [],
+  imports: [UserModule, CommentModule, PostModule, TaskModule, PackageModule],
   controllers: [AppController],
   providers: [
     {

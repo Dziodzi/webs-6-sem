@@ -1,4 +1,5 @@
-import { Body, Controller, Get, Post, Redirect, Render } from '@nestjs/common';
+import { Get, Controller, Render, Post, Body } from '@nestjs/common';
+import { ApiOperation, ApiParam, ApiResponse } from '@nestjs/swagger';r
 import { AppService } from './app.service';
 import session from 'express-session';
 
@@ -7,24 +8,53 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
   private user = '';
 
-  @Get('/')
+  @ApiOperation({
+    summary: 'Gets the statics of index page',
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'The page was successfully provided',
+  })
+  @ApiResponse({
+    status: 403,
+    description: 'Forbidden.',
+  })
+  @Get()
   @Render('index')
   getMain() {
     return { user: this.user };
   }
-  @Get('/reviews')
-  @Render('reviews')
-  getReviews() {
-    console.log('reviews');
+
+  @ApiOperation({
+    summary: 'Gets the statics of team page',
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'The page was successfully provided',
+  })
+  @ApiResponse({
+    status: 403,
+    description: 'Forbidden.',
+  })
+  @Get('/team')
+  @Render('team')
+  getTeam() {
+    console.log('team');
     return { user: this.user };
   }
 
-  @Get('/planner')
-  @Render('planner')
-  getPlanner() {
-    console.log('planner');
-    return { user: this.user };
-  }
+  @ApiOperation({
+    summary: 'Gets the statics of programs page',
+  })
+  @ApiParam({ name: 'username', type: 'string' })
+  @ApiResponse({
+    status: 200,
+    description: 'The page was successfully provided',
+  })
+  @ApiResponse({
+    status: 403,
+    description: 'Forbidden.',
+  })
 
   @Get('/programs')
   @Render('programs')
@@ -33,19 +63,55 @@ export class AppController {
     return { user: this.user };
   }
 
-  @Get('/team')
-  @Render('team')
-  getTeam() {
-    console.log('team');
+  @ApiOperation({
+    summary: 'Gets the statics of planner page',
+  })
+  @ApiParam({ name: 'username', type: 'string' })
+  @ApiResponse({
+    status: 201,
+    description: 'The page was successfully provided',
+  })
+  @ApiResponse({
+    status: 403,
+    description: 'Forbidden.',
+  })
+  @Get('/planner')
+  @Render('planner')
+  getPlanner() {
+    console.log('planner');
     return { user: this.user };
   }
 
-  @Get('/login')
-  @Render('login')
-  getLogin() {
-    console.log('login');
-    return {};
+  @ApiOperation({
+    summary: 'Gets the statics of reviews page',
+  })
+  @ApiParam({ name: 'username', type: 'string' })
+  @ApiResponse({
+    status: 200,
+    description: 'The page was successfully provided.',
+  })
+  @ApiResponse({
+    status: 403,
+    description: 'Forbidden.',
+  })
+  @Get('/reviews')
+  @Render('reviews')
+  getReviews() {
+    console.log('reviews');
+    return { user: this.user };
   }
+
+  @ApiOperation({
+    summary: 'Gets the statics of login page',
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'The page was successfully provided',
+  })
+  @ApiResponse({
+    status: 403,
+    description: 'Forbidden.',
+  })
 
   @Post('/login')
   @Render('index')
@@ -55,33 +121,22 @@ export class AppController {
     return { user: this.user };
   }
 
+
+  @ApiOperation({
+    summary: 'Logging out',
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'The log out was successfully provided',
+  })
+  @ApiResponse({
+    status: 403,
+    description: 'Forbidden.',
+  })
+  
   @Get('/logoutIndex')
   @Render('index')
   logoutIndex() {
-    return { user: null };
-  }
-
-  @Get('/logoutPlanner')
-  @Render('planner')
-  logoutPlanner() {
-    return { user: null };
-  }
-
-  @Get('/logoutPrograms')
-  @Render('programs')
-  logoutPrograms() {
-    return { user: null };
-  }
-
-  @Get('/logoutReviews')
-  @Render('reviews')
-  logoutReviews() {
-    return { user: null };
-  }
-
-  @Get('/logoutTeam')
-  @Render('team')
-  logoutTeam() {
     return { user: null };
   }
 }
