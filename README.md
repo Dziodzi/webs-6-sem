@@ -7,6 +7,9 @@
 
 ---
 
-![image](https://user-images.githubusercontent.com/79766495/233997730-0267ab01-2b35-4196-8c8e-95258fe002bd.png)
+![Диаграмма классов](https://user-images.githubusercontent.com/79766495/233997730-0267ab01-2b35-4196-8c8e-95258fe002bd.png)
+*Диаграмма классов*
+
+---
 
 Автор проекта: Григорий "Dziodzi" Шатинский
