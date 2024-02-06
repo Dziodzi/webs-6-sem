@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+<pre>
+    _    _____   _     _  _  ______     ___
+   / \  |___ /  / \  _| || ||__  / |   / _ \
+  / _ \   |_ \ / _ \|_  ..  _|/ /| |  | | | |
+ / ___ \ ___) / ___ \_      _/ /_| |__| |_| |
+/_/   \_\____/_/   \_\|_||_|/____|_____\___/
+            </pre>
+<p class="loading-time" id="loading-time">Время загрузки страницы составило </p>
+<script>
+  let starting_time = new Date().getTime();
+  window.onload = function () {
+    fetch('/')
+      .then((response) => {
+        const serverTime = response.headers.get('server-time');
+        document.getElementsByClassName('time')[0].innerHTML =
+          'Время отрисовки страницы составило ' +
+          (new Date().getTime() - starting_time) +
+          ' ms, время обработки сервера составило ' + serverTime;
+      })
+      .catch((error) => console.error(error));
+  };
+</script>
+<p class="time"></p>
+<h3>©Azazin. All rights reserved.</h3>
